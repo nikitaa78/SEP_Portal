@@ -1,0 +1,7 @@
+.activeContainer {
+  width: 200px;
+  border: solid;
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+}
