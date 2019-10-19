@@ -1,0 +1,29 @@
+.LoginPage {
+	background: linear-gradient(69.99deg, #244FBE 3.86%, #33B4B4 96.13%);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+}
+
+.Login-main {
+	position: relative;
+	width: 65%;
+	height: 70%;
+	top: 15%;
+	margin: 0 auto;
+	border-radius: 15px;
+	background-color: white;
+}
+
+.loginPic {
+	width: 48%;
+	float: left;
+	background-color: yellow;
+	height: 100%;
+}
+
+.nupic {
+	width: 100%;
+	height: 100%;
+}
+
