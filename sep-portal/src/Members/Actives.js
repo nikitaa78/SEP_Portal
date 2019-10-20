@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Actives.css';
+import NavBar from '../NavBar.js';
 import ActiveBlock from './ActiveBlock';
 
 
@@ -44,12 +45,14 @@ class Actives extends Component {
 
     return loading ? (
       <body>
+        <NavBar />
         <div>
           Loading...
         </div>
       </body>
     ) : (
       <body>
+        <NavBar />
         <div>
           {userData}
         </div>
