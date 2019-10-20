@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './Actives.css';
 import NavBar from '../NavBar.js';
 import ActiveBlock from './ActiveBlock';
+import ActiveProfile from './ActiveProfile';
+import {Redirect, Link} from 'react-router-dom';
 
 
 import { db } from '../firebaseDB';
@@ -11,8 +13,19 @@ class Actives extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userData: null,
+      userData: [],
       loading: true,
+    }
+  }
+
+  linkToActive(user) {
+    return function() {
+      console.log("clicked on", user);
+      console.log(user.year);
+      this.props.history.push({
+        pathname: '/active',
+        state: {year: user.year}
+      });
     }
   }
 
@@ -20,28 +33,35 @@ class Actives extends Component {
     let array = []
     db.collection("users").get().then((querySnapshot) => {
         querySnapshot.forEach(function(doc) {
-          let user = doc.data();
-          let firstName = user.name.first;
-          let lastName = user.name.last;
-          let name = firstName + " " + lastName;
-          let email = user.email;
-          let phone = user.phone;
-          let pledgeClass = user.pledgeClass;
+          // array.push(doc)
+          console.log(doc.id, " => ", doc.data());
+          function link(user) {
+            return function() {
+              this.props.history.push({
+                pathname: '/active',
+                state: {year: user.year}
+              });
+            }
+          }
+          
+          let func = link(doc.data());
 
-          array.push(<ActiveBlock key={doc.id} name={name} email={email} phone={phone} pledgeClass={pledgeClass}/>)
-            // doc.data() is never undefined for query doc snapshots
-          console.log(doc.id, " => ", user);
+          array.push(<ActiveBlock key={doc.id} user={doc.data()} onClick={() => func} />);
+
         });
 
-        console.log(array);
+        console.log("array", array);
         this.setState({userData: array, loading: false});
     });
   }
 
   render() {
     const {userData, loading} = this.state;
-    console.log(loading);
-    console.log(userData);
+
+    // let userData = []
+    // users.map((user) => {
+    //   userData.push(<ActiveBlock key={user} user={user.data()} onClick={() => this.linkToActive(user)()}/>)
+    // });
 
     return loading ? (
       <body>
@@ -58,18 +78,6 @@ class Actives extends Component {
         </div>
       </body>
     );
-
-
-    // var users = db.collection("users");
-    // var jen = users.doc("JenniferLu");
-    //
-    // jen.get().then(function(doc) {
-    //   console.log("Jennifer data:", doc.data());
-    // }).catch(function(error) {
-    //   console.log("Error getting doc:", error);
-    // });
-
-
   }
 }
 
