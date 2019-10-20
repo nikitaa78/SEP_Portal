@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './NavBar.css';
+import nupic from './nu-sf.jpeg';
+import seplogo from './SEPlogo.svg';
 import Homepage from './Homepage.js';
 import {Redirect, Link} from 'react-router-dom';
 
@@ -12,13 +14,16 @@ class NavBar extends Component {
 
 	render() {
 		return (
-			<div>
-              <ul id="nav">
-                <li><a href="/feedback">Feedback</a></li>
-                <li><a href="/alumni">Alumni</a></li>
-                <li><a href="/budget">Budget</a></li>
-                <li><a href="/home">Home</a></li>
-              </ul>
+			<div id='nav'>
+				<a href="/home"><img src={seplogo} id="logo"/></a>
+				<nav>
+				<ul class="nav">
+                	<li><a href="/budget">Budget</a></li>  
+	                <li><a href="/alumni">Alumni</a></li>
+	                <li><a href="/feedback">Feedback</a></li>        
+              	</ul>
+              	</nav>
+            <div class="clear"></div>
             </div>
 		);
 	}
