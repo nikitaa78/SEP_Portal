@@ -1,0 +1,34 @@
+.LoginPage {
+	background: linear-gradient(69.99deg, #244FBE 3.86%, #33B4B4 96.13%);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+}
+
+.Login-main {
+	width: 60vw;
+	height: 70vh;
+	margin: 15vh 20vw;
+	border-radius: 15px;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loginPic {
+	border-radius: 15px 0 0 15px;
+	width: 30vw;
+	height: 100%;
+	overflow:hidden;
+}
+
+.nupic {
+	height: 100%;
+}
+
+.loginText {
+	flex: 1;
+	padding: 100px;
+	text-align: center;
+}

@@ -1,0 +1,36 @@
+#logo { 
+  float: left;
+  display: inline-block;
+  padding: 25px 25px 25px 25px;
+  width: 60px;
+}
+
+.clear {
+  clear: both;
+}
+
+.navbar {
+  color: white;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  font-weight: 800;
+}
+
+.navItems {
+  float: right;
+  list-style: none;   
+  text-align: left;
+  margin: 0;
+}
+
+.navItems > li {                                          
+  display:Inline-block;
+  padding: 20px 50px;       
+}
+
+.navItems > li a {                                               
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+}
+
